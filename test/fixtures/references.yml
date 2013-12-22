@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ref: MyString
+  fact_id: 1
+
+two:
+  ref: MyString
+  fact_id: 1
