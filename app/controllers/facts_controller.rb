@@ -25,7 +25,7 @@ class FactsController < ApplicationController
   # POST /facts.json
   def create
     @fact = Fact.new(fact_params)
-
+    # @reference = Reference.new(reference_params)
     respond_to do |format|
       if @fact.save
         format.html { redirect_to @fact, notice: 'Fact was successfully created.' }
@@ -69,6 +69,10 @@ class FactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fact_params
-      params.require(:fact).permit(:title, :description)
+      params.require(:fact).permit(:title, :description, {references_attributes: reference_params})
+    end
+
+    def reference_params
+      [:ref]
     end
 end
