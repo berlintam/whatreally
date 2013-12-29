@@ -1,8 +1,11 @@
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="#">What, Really?</a>
-    <ul class="nav">
-      <li class="active"><a href="#">Home</a></li>
-    </ul>
+    <%= link_to 'What, Really?', facts_path, id: "logo" %>
+    <nav>
+      <ul class="nav pull-right">
+        <li><%= link_to "All Facts", facts_path %></li>
+        <li><%= link_to "Add New Fact", new_fact_path %></li>
+      </ul>
+    </nav>
   </div>
 </div>
