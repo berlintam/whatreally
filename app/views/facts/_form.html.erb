@@ -20,7 +20,7 @@
     <%= f.text_area :description %>
   </div>
 
-  <%= f.fields_for :references, @fact.references.present? ? @fact.references : @fact.references.build do |reference_fields| %>
+  <%= f.fields_for :references do |reference_fields| %>
     <div class="field">
       <%= reference_fields.label :ref %><br>
       <%= reference_fields.text_field :ref %>
