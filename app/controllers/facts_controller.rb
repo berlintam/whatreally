@@ -74,5 +74,6 @@ class FactsController < ApplicationController
 
     def reference_params
       [:ref]
+      [:ref, :id]
     end
 end
