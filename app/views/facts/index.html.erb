@@ -1,29 +1,11 @@
-<h1>Listing facts</h1>
+<div class='fact'>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <% @facts.each do |fact| %>
+    <div class="fact-overview">
+      <%= link_to fact.title, fact %>
+    </div>
+  <% end %>
+  <hr>
 
-  <tbody>
-    <% @facts.each do |fact| %>
-      <tr>
-        <td><%= fact.title %></td>
-        <td><%= fact.description %></td>
-        <td><%= link_to 'Show', fact %></td>
-        <td><%= link_to 'Edit', edit_fact_path(fact) %></td>
-        <td><%= link_to 'Destroy', fact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Fact', new_fact_path %>
+  <%= link_to 'New Fact', new_fact_path %>
+</div>
