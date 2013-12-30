@@ -1,33 +1,11 @@
-<%= form_for(@fact) do |f| %>
-  <% if @fact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@fact.errors.count, "error") %> prohibited this fact from being saved:</h2>
+<%= simple_form_for(@fact) do |f| %>
 
-      <ul>
-      <% @fact.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%= f.input :title, label: false, placeholder: 'title' %>
+  <%= f.input :description, label: false, placeholder: 'description' %>
+
+  <%= f.simple_fields_for :references do |reference_fields| %>
+    <%= reference_fields.input :ref, label: false, placeholder: 'reference' %><br>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-
-  <%= f.fields_for :references do |reference_fields| %>
-    <div class="field">
-      <%= reference_fields.label :ref %><br>
-      <%= reference_fields.text_field :ref %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit %>
 <% end %>
