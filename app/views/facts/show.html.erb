@@ -1,23 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @fact.title %>
-</p>
+<div class='fact'>
+  <h3 class='fact-overview'>
+    <%= @fact.title %>
+  </h3>
 
-<p>
-  <strong>Description:</strong>
-  <%= @fact.description %>
-</p>
+  <div class='fact-overview'>
+    <%= markdown(@fact.description) %>
+  </div>
 
-<p>
-  <strong>Reference:</strong>
-  <% @fact.references.each do |ref| %>
-    <%= ref.ref %>
-  <% end %>
-</p>
+  <p>
+    Reference(s):
+    <ul>
+    <% @fact.references.each do |ref| %>
+      <li><%= markdown(ref.ref) %></li>
+    <% end %>
+    </ul>
+  </p>
 
-<%= link_to 'Edit', edit_fact_path(@fact) %> |
-<%= link_to 'Back', facts_path %>
+  <%= link_to 'Edit', edit_fact_path(@fact), class: 'pull-right'%>
+</div>
 
-<%= link_to 'Random', random_path, class: "btn btn-primary btn-lg btn-block" %>
+<div class='random-btn'>
+  <%= link_to 'Random', random_path, class: "btn btn-custom btn-lg btn-block" %>
+</div>
