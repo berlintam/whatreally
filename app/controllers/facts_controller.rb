@@ -8,6 +8,11 @@ class FactsController < ApplicationController
   def show
   end
 
+  def random
+    #random_fact = Fact.offset(rand(Fact.count)).first
+    redirect_to Fact.offset(rand(Fact.count)).first
+  end
+
   def new
     @fact = Fact.new
     @fact.references.build
