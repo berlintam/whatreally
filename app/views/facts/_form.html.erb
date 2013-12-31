@@ -1,10 +1,9 @@
 <%= simple_form_for(@fact) do |f| %>
-
-  <%= f.input :title, label: false, placeholder: 'title' %>
-  <%= f.input :description, label: false, placeholder: 'description' %>
+  <%= f.input :title, label: false, placeholder: 'title', input_html: { class: "form-wide"} %>
+  <%= f.input :description, label: false, placeholder: 'description', input_html: { class: 'form-height'} %>
 
   <%= f.simple_fields_for :references do |reference_fields| %>
-    <%= reference_fields.input :ref, label: false, placeholder: 'reference' %><br>
+    <%= reference_fields.input :ref, label: false, placeholder: 'reference', input_html: { class: 'form-wide'} %><br>
   <% end %>
 
   <%= f.button :submit %>
