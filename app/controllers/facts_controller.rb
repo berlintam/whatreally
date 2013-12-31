@@ -9,7 +9,6 @@ class FactsController < ApplicationController
   end
 
   def random
-    #random_fact = Fact.offset(rand(Fact.count)).first
     redirect_to Fact.offset(rand(Fact.count)).first
   end
 
@@ -64,6 +63,6 @@ class FactsController < ApplicationController
     end
 
     def reference_params
-      [:ref, :id]
+      [:ref, :id, :_destroy]
     end
 end
