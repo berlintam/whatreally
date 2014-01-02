@@ -56,7 +56,6 @@
 }
 
 .fact-overview {
-  border-width: 1px;
   background-color: #eee;
   margin-bottom: 30px;
   padding: 20px;
@@ -70,4 +69,12 @@
 .form-height {
   width: 100%;
   min-height: 200px;
+}
+
+.user-box {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 0.7em;
+  margin-left: 65%;
+  color: #666;
 }

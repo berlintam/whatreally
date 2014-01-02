@@ -18,7 +18,14 @@
     </ul>
   </p>
 
-  <%= link_to 'Edit', edit_fact_path(@fact), class: 'pull-right'%>
+  <div class='user-box'>
+    Created by: <%= @fact.user.email %><br>
+    Created at: <%= @fact.created_at %><br>
+    Updated at: <%= @fact.updated_at %><br>
+    <%= image_tag @fact.user.gravatar_url %><br>
+  </div>
+
+  <%= link_to 'Edit', edit_fact_path(@fact), class: 'pull-right' if user_signed_in? %>
 </div>
 
 <div class='random-btn'>
