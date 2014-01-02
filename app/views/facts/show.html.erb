@@ -25,9 +25,12 @@
     <%= image_tag @fact.user.gravatar_url %><br>
   </div>
 
-  <%= link_to 'Edit', edit_fact_path(@fact), class: 'pull-right' if user_signed_in? %>
+  <% if current_user %>
+    <%= link_to 'Edit', edit_fact_path(@fact), class: 'pull-right' if current_user.id == @fact.user.id %><br>
+    <%= link_to("Delete", fact_path(@fact), class: 'pull-right', :method => :delete, :confirm => 'Are you sure you want to delete this fact?') if current_user.id == @fact.user.id %></td>
+  <% end %>
 </div>
 
 <div class='random-btn'>
-  <%= link_to 'Random', random_path, class: "btn btn-custom btn-lg btn-block" %>
+  <%= link_to 'Random Fact', random_path, class: "btn btn-custom btn-lg btn-block" %>
 </div>
