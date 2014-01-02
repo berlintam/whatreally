@@ -27,7 +27,8 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.1)
     atomic (1.1.14)
-    bootstrap-sass (3.0.3.0)
+    bcrypt-ruby (3.1.2)
+    bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
     builder (3.1.4)
     coffee-rails (4.0.1)
@@ -37,8 +38,15 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    devise (3.2.2)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    gravtastic (3.2.6)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -54,6 +62,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.2)
+    orm_adapter (0.5.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -109,13 +118,17 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
+  bootstrap-sass (= 2.3.2.0)
   coffee-rails (~> 4.0.0)
+  devise
+  gravtastic
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.0)

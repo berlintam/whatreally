@@ -1,5 +1,6 @@
 class FactsController < ApplicationController
   before_action :set_fact, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, except: [:index, :show, :random]
 
   def index
     @facts = Fact.all
@@ -22,6 +23,7 @@ class FactsController < ApplicationController
 
   def create
     @fact = Fact.new(fact_params)
+    @fact.user_id = current_user.id
     respond_to do |format|
       if @fact.save
         format.html { redirect_to @fact, notice: 'Fact was successfully created.' }
@@ -59,7 +61,8 @@ class FactsController < ApplicationController
     end
 
     def fact_params
-      params.require(:fact).permit(:title, :description, {references_attributes: reference_params})
+      params.require(:fact).permit(:title, :description, :user_id,
+        {references_attributes: reference_params})
     end
 
     def reference_params

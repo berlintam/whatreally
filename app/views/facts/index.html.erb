@@ -7,5 +7,5 @@
   <% end %>
   <hr>
 
-  <%= link_to 'New Fact', new_fact_path %>
+  <%= link_to 'New Fact', new_fact_path if user_signed_in? %>
 </div>
