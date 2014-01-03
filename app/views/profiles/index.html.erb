@@ -1,0 +1,18 @@
+<div class='fact'>
+
+Your public facts:
+<ul>
+  <% @public_facts.each do |fact| %>
+    <li><%= link_to fact.title, fact %></li>
+  <% end %>
+</ul>
+
+
+Your private facts:
+<ul>
+  <% @private_facts.each do |fact| %>
+    <li><%= link_to fact.title, fact %></li>
+  <% end %>
+</ul>
+
+</div>
