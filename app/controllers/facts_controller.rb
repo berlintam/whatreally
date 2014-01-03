@@ -3,7 +3,7 @@ class FactsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show, :random]
 
   def index
-    @facts = Fact.all
+    @facts = Fact.where.not(private: true)
   end
 
   def show
@@ -61,7 +61,7 @@ class FactsController < ApplicationController
     end
 
     def fact_params
-      params.require(:fact).permit(:title, :description, :user_id,
+      params.require(:fact).permit(:title, :description, :user_id, :private,
         {references_attributes: reference_params})
     end
 

@@ -1,6 +1,7 @@
 <%= simple_form_for(@fact) do |f| %>
   <%= f.input :title, label: false, placeholder: 'title', input_html: { class: "form-wide"} %>
   <%= f.input :description, label: false, placeholder: 'description', input_html: { class: 'form-height'} %>
+  <%= f.input :private, as: :boolean, checked_value: true, unchecked_value: false, label: 'Make me private!' %>
 
   <%= f.simple_fields_for :references do |reference_fields| %>
 
