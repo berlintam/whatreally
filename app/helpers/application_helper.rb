@@ -8,4 +8,8 @@ module ApplicationHelper
     )
     raw redcarpet.render(text)
   end
+
+  def icon_minus
+    '<i class="icon-minus"></i>'.html_safe
+  end
 end

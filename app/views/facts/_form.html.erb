@@ -1,16 +1,24 @@
 <%= simple_form_for(@fact) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :title, label: false, placeholder: 'title', input_html: { class: "form-wide"}, hint: 'Title can be max 140 characters.' %>
+  <%= f.input :description, label: false, placeholder: 'description', input_html: { class: 'form-height'} %>
+  <%= f.input :private_fact, as: :boolean, checked_value: true, unchecked_value: false, label: 'Make me private!' %>
 
-    <%= f.input :title, label: false, placeholder: 'title', input_html: { class: "form-wide"}, hint: 'Title can be max 140 characters.' %>
-    <%= f.input :description, label: false, placeholder: 'description', input_html: { class: 'form-height'} %>
-    <%= f.input :private_fact, as: :boolean, checked_value: true, unchecked_value: false, label: 'Make me private!' %>
-
-    <%= f.simple_fields_for :references do |reference_fields| %>
-      <div class="fields">
-        <%= reference_fields.input :ref, label: false, placeholder: 'reference', input_html: { class: 'form-wide'}, hint: 'Facts need at least one reference.' %><br>
-        <%= reference_fields.hidden_field :_destroy %>
-        <%= link_to_function 'remove', 'remove_fields(this)' %>
+  <%= f.simple_fields_for :references do |reference_fields| %>
+    <div class="fields">
+      <div class='row'>
+        <div class='span7'>
+          <%= reference_fields.input :ref, label: false, placeholder: 'reference', input_html: { class: 'form-wide'}, hint: 'Facts need at least one reference.' %><br>
+        </div>
+        <div class='span1'>
+          <%= reference_fields.hidden_field :_destroy %>
+          <%= link_to_function(icon_minus, 'remove_fields(this)', class: 'btn btn-danger') %>
+        </div>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 
-  <%= f.button :submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
 <% end %>
