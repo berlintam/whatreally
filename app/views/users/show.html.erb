@@ -1,0 +1,34 @@
+<div class='fact'>
+
+<div class='row'>
+  <div class="span2">
+    <%= image_tag(current_user.gravatar_url) %>
+  </div>
+
+  <div class="span6">
+    <h3>Welcome <%= @user.email %>!</h3>
+  </div>
+</div>
+
+<hr>
+
+<h5>Your public facts:</h5>
+<ul>
+  <% @my_public_facts.each do |fact| %>
+    <li><%= link_to fact.title, fact %></li>
+  <% end %>
+</ul>
+
+
+<h5>Your private facts:</h5>
+<ul>
+  <% @my_private_facts.each do |fact| %>
+    <li><%= link_to fact.title, fact %></li>
+  <% end %>
+</ul>
+
+<hr>
+
+<%= link_to 'Edit your info', edit_user_registration_path %>
+
+</div>
