@@ -93,7 +93,6 @@ body {
   color: #666;
 }
 
-
 .small-gravatar {
   width: 18px;
 }
@@ -108,4 +107,19 @@ body {
 
 .profile-email-spacing {
   float: right;
+}
+
+.simple_form {
+  .error {
+    clear: left;
+    color: red;
+    display: block;
+  }
+  .hint {
+    clear: left;
+    color: #555;
+    display: block;
+    font-style: italic;
+    font-size: 0.8em;
+  }
 }
