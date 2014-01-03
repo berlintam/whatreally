@@ -1,36 +1,48 @@
 @import "bootstrap";
 
+body {
+  /* 60px to make the container go all the way to the bottom of the topbar */
+  padding-top: 60px; 
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  max-width: 50em;
+}
+
 /* header */
+// .navbar .brand:hover {
+//   color: #fff;
+//   background-color: #fff;
+//   text-decoration: none;
+// }
+// #logo {
+//   float: left;
+//   margin-right: 10px;
+//   font-size: 1.7em;
+//   color: black;
+//   text-transform: uppercase;
+//   letter-spacing: -1px;
+//   padding-top: 9px;
+//   font-weight: bold;
+//   line-height: 1;
+// }
 
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: black;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  line-height: 1;
-}
+// #logo:hover {
+//   color: #fff;
+//   text-decoration: none;
+// }
 
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-.container {
-  padding-top: 60px;
-  padding-bottom: 60px;
-  padding-right: 150px;
-  padding-left: 150px;
-}
+// .container {
+//   padding-top: 60px;
+//   padding-bottom: 60px;
+//   padding-right: 150px;
+//   padding-left: 150px;
+// }
 
 .fact {
-  padding-top: 10px;
-  padding-bottom: 50px;
-  padding-right: 150px;
-  padding-left: 150px;
+  margin: 10px;
 }
 
 .btn-custom {
@@ -51,8 +63,6 @@
 }
 
 .random-btn {
-  padding-right: 150px;
-  padding-left: 150px;
 }
 
 .fact-overview {
@@ -64,6 +74,10 @@
 
 .form-wide {
   width: 100%;
+}
+
+.form-80wide {
+  width: 80%;
 }
 
 .form-height {
@@ -80,7 +94,7 @@
 }
 
 .small-profile-gravatar {
-  width: 25px;
+  width: 18px;
 }
 
 .profile-gravatar-spacing {
