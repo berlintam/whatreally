@@ -23,7 +23,7 @@
     Created by: <%= @fact.user.email %><br>
     Created at: <%= @fact.created_at %><br>
     Updated at: <%= @fact.updated_at %><br>
-    <%= image_tag @fact.user.gravatar_url %><br>
+    <%= image_tag(@fact.user.gravatar_url, class: 'medium-gravatar') %><br>
   </div>
 
   <% if current_user %>
