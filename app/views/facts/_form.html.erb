@@ -5,18 +5,10 @@
   <%= f.input :private_fact, as: :boolean, checked_value: true, unchecked_value: false, label: 'Make me private!' %>
 
   <%= f.simple_fields_for :references do |reference_fields| %>
-    <div class="fields">
-      <div class='row'>
-        <div class='span7'>
-          <%= reference_fields.input :ref, label: false, placeholder: 'reference', input_html: { class: 'form-wide'}, hint: 'Facts need at least one reference.' %><br>
-        </div>
-        <div class='span1'>
-          <%= reference_fields.hidden_field :_destroy %>
-          <%= link_to_function(icon_minus, 'remove_fields(this)', class: 'btn btn-danger') %>
-        </div>
-      </div>
-    </div>
+    <%= render 'references/form', f: reference_fields %>
   <% end %>
+  <%= link_to_add_fields('Add reference', f, :references) %>
+
 
   <div class="form-actions">
     <%= f.button :submit %>
