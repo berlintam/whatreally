@@ -1,25 +1,11 @@
-<%= form_for(@reference) do |f| %>
-  <% if @reference.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@reference.errors.count, "error") %> prohibited this reference from being saved:</h2>
-
-      <ul>
-      <% @reference.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<div class="fields">
+  <div class='row'>
+    <div class='span7'>
+      <%= f.input :ref, label: false, placeholder: 'reference', input_html: { class: 'form-wide'}, hint: 'Facts need at least one reference.' %><br>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :ref %><br>
-    <%= f.text_field :ref %>
+    <div class='span1'>
+      <%= f.hidden_field :_destroy %>
+      <%= link_to_function(icon_minus, 'remove_fields(this)', class: 'btn btn-danger') %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :fact_id %><br>
-    <%= f.number_field :fact_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
