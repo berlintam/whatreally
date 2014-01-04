@@ -3,7 +3,7 @@ class FactsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show, :random]
 
   def index
-    @facts = Fact.where.not(private_fact: true)
+    @facts = Fact.where.not(private_fact: true).page(params[:page]).per_page(15)
   end
 
   def show
