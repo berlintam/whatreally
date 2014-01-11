@@ -20,9 +20,11 @@ function remove_fields(link) {
   $(link).closest(".fields").hide();
 }
 
-function add_fields(link, association, content) {
-  alert('asdasd');
-  var new_id = new Date().getTime();
-  var regexp = new RegExp("new_" + association, "g");
-  $(link).parent().before(content.replace(regexp, new_id));
-}
+$(document).on('click', 'form .add_fields', function(event) {
+  var regexp, time;
+  time = new Date().getTime();
+  regexp = new RegExp($(this).data('id'), 'g');
+  $(this).before($(this).data('fields').replace(regexp, time));
+  return event.preventDefault();
+});
+
