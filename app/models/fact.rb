@@ -9,4 +9,8 @@ class Fact < ActiveRecord::Base
 
   validates :title, length: {maximum: 140}, allow_blank: false
 
+  def self.random # class model
+    Fact.offset(rand(Fact.count)).first
+    # TODO private facts should not be displayed
+  end
 end

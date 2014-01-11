@@ -6,12 +6,12 @@ class FactsController < ApplicationController
     @facts = Fact.where.not(private_fact: true).page(params[:page]).per_page(15)
   end
 
-  def show
+  def random
+    @fact = Fact.random
+    render 'show'
   end
 
-  def random
-    redirect_to Fact.offset(rand(Fact.count)).first
-    # TODO private facts should not be displayed
+  def show
   end
 
   def new
