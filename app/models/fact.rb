@@ -6,6 +6,7 @@ class Fact < ActiveRecord::Base
 
   validates :title, presence: true
   validates :description, presence: true
+  validates :references, presence: true
 
   validates :title, length: {maximum: 140}, allow_blank: false
 
