@@ -7,8 +7,8 @@
   <%= f.simple_fields_for :references do |reference_fields| %>
     <%= render 'references/form', f: reference_fields %>
   <% end %>
-  <%= link_to_add_fields('Add reference', f, :references) %>
 
+  <%= link_to_add_fields('Add reference', f, :references) %>
 
   <div class="form-actions">
     <%= f.button :submit %>
