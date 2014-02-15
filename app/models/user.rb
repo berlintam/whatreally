@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :facts
   has_many :fact_votes
+  has_many :stars
 
   def can_vote_for?(fact)
     fact_votes.build(value: 1, fact: fact).valid? if fact_votes

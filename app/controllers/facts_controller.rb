@@ -20,6 +20,25 @@ class FactsController < ApplicationController
     end
   end
 
+  def star
+    star = current_user.stars.new(fact_id: params[:id])
+    if star.save
+      redirect_to :back, notice: "Thank you for starring."
+    else
+      redirect_to :back, alert: "Unable to star, perhaps you already did."
+    end
+  end
+
+  def unstar
+    # TODO delete star
+    # DELETE STAR
+    # if star.save
+    #   redirect_to :back, notice: "Thank you for starring."
+    # else
+    #   redirect_to :back, alert: "Unable to star, perhaps you already did."
+    # end
+  end
+
   def show
   end
 

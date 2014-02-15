@@ -2,6 +2,7 @@ class Fact < ActiveRecord::Base
   has_many :references, dependent: :destroy
   belongs_to :user
   has_many :fact_votes
+  has_many :stars
 
   accepts_nested_attributes_for :user, :references, :allow_destroy => true
 
@@ -18,6 +19,10 @@ class Fact < ActiveRecord::Base
 
   def votes
     read_attribute(:votes) || fact_votes.sum(:value)
+  end
+
+  def is_starred_by_user?(user_id)
+    stars.where(user_id: user_id).where(fact_id: id).present?
   end
 
 end

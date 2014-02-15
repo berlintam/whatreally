@@ -11,7 +11,21 @@
     <% if current_user && current_user.can_vote_for?(@fact) %>
       <%= link_to "up", vote_fact_path(@fact, value: 1), method: "post" %>
       <%= link_to 'down', vote_fact_path(@fact, value: -1), method: 'post' %>
-      <% end %>
+    <% end %>
+  </div>
+
+  <div>
+    <% if current_user %>
+      <%= link_to "star", star_fact_path(@fact), method: "post" %>
+      <%= link_to "unstar", star_fact_path(@fact), method: "destroy" %>
+    <% end %>
+  </div>
+
+  <div>
+    <% if @fact.is_starred_by_user?(current_user.id) %>
+      starred by user
+    <% end %>
+
   </div>
 
   <div class='fact-overview'>

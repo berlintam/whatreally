@@ -6,6 +6,8 @@ Whatreally::Application.routes.draw do
 
   resources :facts do
     member { post :vote }
+    member { post :star }
+    member { delete :star }
   end
 
   get 'random' => 'facts#random'
