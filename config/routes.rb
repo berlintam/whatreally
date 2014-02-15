@@ -4,7 +4,10 @@ Whatreally::Application.routes.draw do
 
   resources :references
 
-  resources :facts
+  resources :facts do
+    member { post :vote }
+  end
+
   get 'random' => 'facts#random'
 
   # The priority is based upon order of creation: first created -> highest priority.

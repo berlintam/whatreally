@@ -1,6 +1,7 @@
 class Fact < ActiveRecord::Base
   has_many :references, dependent: :destroy
   belongs_to :user
+  has_many :fact_votes
 
   accepts_nested_attributes_for :user, :references, :allow_destroy => true
 
@@ -14,4 +15,9 @@ class Fact < ActiveRecord::Base
     Fact.offset(rand(Fact.count)).first
     # TODO private facts should not be displayed
   end
+
+  def votes
+    read_attribute(:votes) || fact_votes.sum(:value)
+  end
+
 end
